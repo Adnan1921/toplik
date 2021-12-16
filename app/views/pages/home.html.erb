@@ -1,0 +1,16 @@
+
+<%= render "shared/navbar" %>
+
+<section id="hero" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <h1>Make a <br>reservation</h1>
+      <h2>Toplik Rooms su smještajni kapaciteti smješteni uz sami restoran i urađeni u prirodnom stilu, od 100% prirodnih materijala. Naše sobe su namijenjene putnicima namjernicima koji žele odmor u miru i tišini, van gradske guzve. Sobe posjeduju sve potrebne elemente za kvalitetan odmor. Noćenja su sa uključenim doručkom. Polupansione takođe radimo u dogovoru sa našim gostima. Ugodan boravak u našem Topliku!</h2>
+      <div class="d-flex">
+        <%= link_to  rooms_path , class: "btn-get-started scrollto" do %>
+        Book Now
+     <%= image_tag "arrow.svg" %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+

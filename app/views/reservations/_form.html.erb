@@ -1,0 +1,102 @@
+<%= form_with(model: [ @room ,reservation], local: true) do |form| %>
+<%= form.hidden_field :room_id, :value => @room.id%>
+
+<% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+      <ul>
+        <% reservation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+ <div class="container-fluid">
+       <div class="row">
+           <div class="col-12 col-md-8 bg-light">
+             <div class="container mt-5 mx-5">
+               <p class="font-poppins-48"> Confirm <br> your reservation</p>
+             </div>
+             <div class="container col-md-10 bg-white mt-2 pt-4 px-5">
+               <div class="row align-items-stretch no-gutters contact-wrap">
+                 <div class="col-md-12">
+                   <div class="form h-100">
+                     <form class="mb-5" method="post" id="contactForm" name="contactForm">
+                       <div class="row">
+                         <div class="col-md-4 form-group mt-4 mb-4">
+                           <label for="" class="col-form-label">Name</label>
+                               <%= form.text_field :name, class: "form-control" %>
+
+                         </div>
+                         <div class="col-md-4 form-group mt-4 mb-4">
+                           <label for="" class="col-form-label">Last Name</label>
+                             <%= form.text_field :last_name, class: "form-control" %>
+                         </div>
+                         <div class="col-md-4 form-group mt-4 mb-4">
+                           <label for="" class="col-form-label">Email address</label>
+                                <%= form.text_field :email, class: "form-control" %>
+                         </div>
+                       </div>
+
+                       <div class="row">
+                         <div class="col-md-4 form-group mt-4 mb-4">
+                           <label for="" class="col-form-label">Number of persons</label>
+                            <%= form.text_field :persons, class: "form-control" %>
+                            
+                         </div>
+                         <div class="col-md-4 form-group mt-4 mb-4">
+                           <label for="" class="col-form-label">Arrival date</label>
+                               <%= form.date_field :start_date, class: "form-control" %>
+
+                         </div>
+                         <div class="col-md-4 form-group mt-4 mb-4">
+                           <label for="" class="col-form-label">Departure date</label>
+                               <%= form.date_field :end_date, class: "form-control" %>
+                         </div>
+                       </div>
+
+                       <div class="row">
+                         <div class="col-md-12 form-group mt-4 mb-4">
+                           <label for="" class="col-form-label">Reservation Notes (e.g. phone number, preferences)</label>
+                               <%= form.text_field :message, class: "form-control" %>
+
+                         </div>
+                       </div>
+                    
+                       <div class="row">
+                         <div class="col-md-12 form-group mb-4">
+                           <input type="submit" class="btn btn-green rounded-0 py-2 px-4" name="commit" value="Create Reservation" data-disable-with="Create Reservation">
+                           
+                         </div>
+                       </div>
+                     </form>
+
+                   </div>
+                 </div>
+               </div>
+                    </div>
+
+           </div>
+           <div class="col-12 col-md-4 bg-one-bedroom-apartment" style="background-image: linear-gradient(0deg, rgba(29, 29, 29, 0.9), rgba(29, 29, 29, 0.9)), url('<%= rails_blob_url(@room.thumbnail_image) %>');"
+>
+             <div class="center">
+             <p class="text-white font-libre-36"><%= @room.name%></p>
+             <p class="text-white font-poppins-18"><%= @room.description%></p>
+             <div class="row mx-auto justify-content-center">
+             <div class="col-6">
+               <button type="button" class="btn btn-light mt-5 py-3 px-3 rounded-0 font-poppins-button">Change Room</button>
+             </div>
+             </div>
+             </div>
+             </div>
+         </div>
+     </div>
+
+
+
+
+
+	<% end %>

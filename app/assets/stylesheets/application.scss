@@ -1,0 +1,472 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// @import "config/fonts";
+// @import "config/colors";
+// @import "config/bootstrap_variables";
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome";
+.wrapper {
+    display: block;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* top layer */
+    z-index: 9999;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    /* full screen */
+    width: 100vw;
+    height: 100vh;
+    /* transparent black */
+    background: rgba(0, 0, 0, 0.7);
+    /* middle layer, i.e. appears below the sidebar */
+    z-index: 998;
+    opacity: 0;
+    /* animate the transition */
+    transition: all 0.5s ease-in-out;
+}
+
+
+/* display .overlay when it has the .active class */
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+#dismiss {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    /* top right corner of the sidebar */
+    top: 10px;
+    right: 10px;
+}
+
+#hero {
+    width: 100%;
+    height: 100vh;
+    background: url(image-path('hero.jpg')), top left;
+    background-size: cover;
+    position: relative;
+}
+
+#hero:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#hero .container {
+    position: relative;
+}
+
+#hero h1 {
+    margin: 0;
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 86px;
+    color: #F3F3F3;
+    font-family: 'Libre Baskerville', serif;
+}
+
+#hero h1 span {
+    color: #106eea;
+}
+
+#hero h2 {
+    color: #F3F3F3;
+    margin: 5px 0 30px 0;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    line-height: 25px;
+    opacity: 60%;
+    padding-right: 30%;
+}
+
+#hero .btn-get-started {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 15px 48px;
+    border-radius: 1px;
+    transition: 0.5s;
+    color: #000;
+    background: #F3F3F3;
+    text-decoration: none;
+}
+
+#hero .btn-watch-video {
+    font-size: 16px;
+    transition: 0.5s;
+    margin-left: 25px;
+    color: #222222;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+#hero .btn-watch-video i {
+    color: #106eea;
+    font-size: 32px;
+    transition: 0.3s;
+    line-height: 0;
+    margin-right: 8px;
+}
+
+#hero .btn-watch-video:hover {
+    color: #106eea;
+}
+
+#hero .btn-watch-video:hover i {
+    color: #3b8af2;
+}
+
+@media (min-width: 1024px) {
+    #hero {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero {
+        height: 100vh;
+    }
+    #hero h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    #hero h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+    #hero .btn-get-started,
+    #hero .btn-watch-video {
+        font-size: 13px;
+    }
+}
+
+@media (max-height: 500px) {
+    #hero {
+        height: 120vh;
+    }
+}
+
+
+/* Change navbar styling on small viewports */
+
+@media (max-width: 991.98px) {
+    .navbar {
+        background: #fff;
+    }
+    .navbar .navbar-brand,
+    .navbar .nav-link {
+        color: #555;
+    }
+}
+
+#room .col-md-4 {
+    float: left;
+    width: 33.333333333%;
+    background-size: cover;
+    height: 100vh;
+}
+
+.fill {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: #000000;
+}
+
+.room-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.room-text {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 25px;
+    display: flex;
+    justify-content: center;
+    opacity: 60%;
+    color: #F3F3F3;
+}
+
+.room {
+    padding-top: 100%;
+    padding-right: 10%;
+    padding-left: 10%
+}
+
+#room .btn-get-room {
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 15px 48px;
+    border-radius: 1px;
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    border: solid 1px #fff;
+}
+
+.btn-get-room:hover {
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 15px 48px;
+    border-radius: 1px;
+    background: #F3F3F3;
+    text-decoration: none;
+    color: #F3F3F3
+}
+
+.bg-one-bedroom-apartment {
+    // background-image: url(./images/one-bedroom-apartment.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    width: 400px;
+    top: 65%;
+    transform: translate(-50%, -65%);
+}
+
+.font-libre-36 {
+    font-family: Libre Baskerville;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.01em;
+}
+
+.font-poppins-18 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #F3F3F3;
+    opacity: 0.6;
+}
+
+.font-poppins-48 {
+    font-family: Libre Baskerville;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 140%;
+    /* or 67px */
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+    color: #1D1D1D;
+}
+
+.font-poppins-button {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+}
+
+input[type="text"],
+select.form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+input[type="text"]:focus,
+select.form-control:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+textarea#name.form-control {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 38px;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.btn-green {
+    background-color: #84A017;
+    color: white;
+}
+
+.background-nav {
+    background-image: url(./images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Sidebar */
+
+#sidebar-wrapper {
+    z-index: 1;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    overflow-y: hidden;
+    background: #f3f3f3;
+    opacity: 1;
+    transition: all .5s;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Main Content */
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+    transition: all .5s;
+    z-index: 1;
+}
+
+#menu-toggle {
+    transition: all .3s;
+    font-size: 2em;
+    background-color: transparent;
+}
+
+
+/* Change the width of the sidebar to display it*/
+
+#wrapper.menuDisplayed #sidebar-wrapper {
+    width: 400px;
+}
+
+#wrapper.menuDisplayed #page-content-wrapper {
+    padding-left: 400px;
+}
+
+
+/* Sidebar styling */
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+    transition: all .5s;
+    width: 100%;
+    text-align: left;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+    width: 100%;
+    transition: all .3s;
+    padding: 10px;
+    margin-left: 50px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar-nav li:hover {
+    background: #f3f3f3;
+}
+
+.hr {
+    background-color: white;
+    margin-top: 10px;
+}
+
+.margin-bottom {
+    margin-bottom: 150px;
+}
+
+.pictures {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 610px;
+}
+
+.font-libre-48 {
+    font-family: Libre Baskerville;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 140%;
+    display: flex;
+    letter-spacing: 0.01em;
+}
+
+.font-poppins-18a {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 140%;
+    display: flex;
+    letter-spacing: 0.01em;
+    color: #F3F3F3;
+    opacity: 0.6;
+}

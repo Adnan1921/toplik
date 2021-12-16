@@ -1,0 +1,67 @@
+<body class="background-nav">
+
+       <div id="wrapper">
+         <!-- Sidebar -->
+         <div id="sidebar-wrapper">
+           <ul class="sidebar-nav">
+             <div class="row margin-bottom">
+               <div class="col-2 mb-2">
+                 ENG
+               </div>
+               <div class="col-2 mb-2">
+                 BH
+               </div>
+               <div class="col-2 mb-2">
+                 RU
+               </div>
+               <hr>
+               </div>
+             <li><a href="#">Home</a></li>
+             <li><a href="#">About Us</a></li>
+             <li><a href="#">Reservation</a></li>
+             <li><a href="#">Contact</a></li>
+             <div class="row mt-5">
+               <hr>
+               <div class="col-6 mb-2">
+                 Contact informations
+               </div>
+               <div class="col-6 mb-2">
+                 BH
+               </div>
+               </div>
+           </ul>
+         </div>
+
+         <!-- Page Content -->
+         <div id="page-content-wrapper">
+           <div class="container">
+             <div class="row">
+               <div class="col-lg-5">
+                 <a href="#" class="btn mt-4" id="menu-toggle"><span><%= image_tag "menu.svg" %></span></a>
+                 </div>
+               <div class="col-lg-2">
+                <%= link_to  root_path do  %>
+
+                 <%= image_tag "logo.png" %>
+                         <% end %>
+
+               </div>
+               <div class="col-lg-3">
+               </div>
+               <div class="col-lg-2">
+                 <button type="button" class="btn btn-outline-light mt-3">Book Now</button>
+               </div>
+               <hr class="hr">
+             </div>
+           </div>
+         </div>
+       </div>
+
+<script>
+  $(document).ready(function(){
+  $("#menu-toggle").click(function(e){
+    e.preventDefault();
+    $("#wrapper").toggleClass("menuDisplayed");
+  });
+});
+</script>

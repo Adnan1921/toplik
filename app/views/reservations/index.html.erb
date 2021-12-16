@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reservations</h1>
+
+<table>
+  
+
+  <tbody>
+    <% @reservations.where(restaurant_category_id: "7") do |reservation| %>
+      <tr>
+        <td><%= reservation.name %></td>
+        <td><%= reservation.last_name %></td>
+        <td><%= reservation.email %></td>
+        <td><%= reservation.persons %></td>
+        <td><%= reservation.start_date %></td>
+        <td><%= reservation.end_date %></td>
+        <td><%= reservation.message %></td>
+        <td><%= link_to 'Show', room_reservations_path %></td>
+        <td><%= link_to 'Edit', edit_room_reservation_path(@room , reservation) %></td>
+        <td><%= link_to 'Destroy', [@room , reservation], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reservation', new_room_reservation_path %>
